@@ -1,0 +1,1 @@
+﻿## Entites - Business Entities

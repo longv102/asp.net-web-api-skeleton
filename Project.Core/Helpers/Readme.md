@@ -1,0 +1,1 @@
+﻿## Add methods that support handling of business processes
