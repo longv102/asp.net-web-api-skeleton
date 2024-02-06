@@ -1,3 +1,5 @@
+using Project.Api.Middlewares;
+
 namespace Project.Api
 {
     public class Program
@@ -19,9 +21,9 @@ namespace Project.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseMiddleware<GlobalExceptionMiddleware>();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
