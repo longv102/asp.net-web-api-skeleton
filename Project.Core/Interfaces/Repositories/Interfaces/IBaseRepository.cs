@@ -1,4 +1,4 @@
-﻿namespace Project.Core.Repositories.Interfaces
+﻿namespace Project.Core.Interfaces.Repositories.Interfaces
 {
     public interface IBaseRepository<T> where T : class
     {

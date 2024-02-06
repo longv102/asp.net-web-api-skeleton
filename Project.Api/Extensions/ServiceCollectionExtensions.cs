@@ -1,5 +1,5 @@
-﻿using Project.Core.Repositories;
-using Project.Core.Repositories.Interfaces;
+﻿using Project.Core.Interfaces.Repositories;
+using Project.Core.Interfaces.Repositories.Interfaces;
 
 namespace Project.Api.Extensions
 {
@@ -17,5 +17,7 @@ namespace Project.Api.Extensions
 
             return services;
         }
+
+
     }
 }

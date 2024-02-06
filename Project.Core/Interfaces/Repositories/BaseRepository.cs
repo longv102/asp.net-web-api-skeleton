@@ -1,13 +1,13 @@
-﻿using Project.Core.Repositories.Interfaces;
+﻿using Project.Core.Interfaces.Repositories.Interfaces;
 
-namespace Project.Core.Repositories
+namespace Project.Core.Interfaces.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         // Add the DbContext and DbSet in the constructor
         public BaseRepository()
         {
-            
+
         }
 
         public Task Add(T entity, CancellationToken cancellationToken = default)
