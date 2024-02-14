@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Models\Dtos\Response\" />
     <Folder Include="Models\Dtos\Request\" />
+    <Folder Include="Models\Entities\Relationships\" />
   </ItemGroup>
 
 </Project>

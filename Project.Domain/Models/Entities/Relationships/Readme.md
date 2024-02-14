@@ -1,0 +1,1 @@
+﻿## Configuration of entities relationship

@@ -1,5 +1,5 @@
-﻿using Project.Core.Interfaces.Repositories;
-using Project.Core.Interfaces.Repositories.Interfaces;
+﻿using Project.Core.Applications.Repositories;
+using Project.Core.Applications.Repositories.Interfaces;
 
 namespace Project.Api.Extensions
 {
@@ -12,7 +12,7 @@ namespace Project.Api.Extensions
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             // Register repositories and services here
-            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 
             return services;
