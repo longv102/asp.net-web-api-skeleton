@@ -1,1 +1,0 @@
-﻿## Enums supporting the entites

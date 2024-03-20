@@ -1,1 +1,0 @@
-﻿## Interface of service layer

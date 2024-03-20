@@ -1,1 +1,1 @@
-﻿## Add methods that support handling of business processes
+## Add classes for supporting business logic handling

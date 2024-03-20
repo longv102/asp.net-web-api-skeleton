@@ -1,1 +1,1 @@
-﻿## Add constants here
+## Add constants here

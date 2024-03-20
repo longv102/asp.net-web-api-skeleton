@@ -1,33 +1,28 @@
+using Project.Api.Configurations;
+using Project.Api.Extensions;
 using Project.Api.Middlewares;
 
-namespace Project.Api
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.Register();
+SwaggerConfiguration.ConfigureSwagger(builder.Services, builder.Configuration);
+SqlServerConfiguration.ConfigureSqlServer(builder.Services, builder.Configuration);
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-
-            Extensions.ServiceCollectionExtensions.Register(builder.Services);
-            Configurations.Swagger.SwaggerConfiguration.ConfigureSwagger(builder.Services);
-            Configurations.Jwt.JwtConfiguration.ConfigureJwt(builder.Services, builder.Configuration);
-            Configurations.Database.SqlServerConfiguration.ConfigureSqlServer(builder.Services, builder.Configuration);
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-            app.UseMiddleware<GlobalExceptionMiddleware>();
-
-            app.UseAuthorization();
-
-            app.MapControllers();
-
-            app.Run();
-        }
-    }
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
