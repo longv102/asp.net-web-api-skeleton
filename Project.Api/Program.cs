@@ -1,13 +1,10 @@
-using Project.Api.Configurations;
 using Project.Api.Extensions;
 using Project.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Register();
-SwaggerConfiguration.ConfigureSwagger(builder.Services, builder.Configuration);
-SqlServerConfiguration.ConfigureSqlServer(builder.Services, builder.Configuration);
+builder.Services.Register(builder.Configuration);
 
 var app = builder.Build();
 
@@ -15,7 +12,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "ProjectAPI v1");
+        options.SwaggerEndpoint("/swagger/v2/swagger.json", "ProjectAPI v2");
+    });
 }
 
 app.UseMiddleware<GlobalExceptionHandlingMiddleware>();

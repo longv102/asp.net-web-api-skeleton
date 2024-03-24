@@ -12,9 +12,9 @@
     /// <summary>
     /// Example
     /// </summary>
-    public class ForbiddenExeption : Exception
+    public class ForbiddenAccessExeption : Exception
     {
-        public ForbiddenExeption(string message) : base(message) 
+        public ForbiddenAccessExeption(string message) : base(message) 
         {
         }
     }
